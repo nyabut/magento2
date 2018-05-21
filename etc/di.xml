@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Downloadable\LinkVisibility\Api\VisibilityRepositoryInterface" type="Downloadable\LinkVisibility\Model\VisibilityRepository" />
+    <preference for="Downloadable\LinkVisibility\Api\Data\VisibilityInterface" type="Downloadable\LinkVisibility\Model\Visibility" />
+    <type name="Magento\Downloadable\Model\Product\Type">
+        <plugin name="downloadable_linkvisibility_producttype" type="Downloadable\LinkVisibility\Plugin\Link\ProductType" />
+    </type>
+    <type name="Magento\Downloadable\Api\LinkRepositoryInterface">
+        <plugin name="downloadable_linkvisibility_repository" type="Downloadable\LinkVisibility\Plugin\Link\Repository" />
+    </type>
+    <type name="Magento\Catalog\Controller\Adminhtml\Product\Initialization\Helper">
+        <plugin name="Downloadable" disabled="true" />
+        <plugin name="downloadable_linkvisibility_downoadable" type="Downloadable\LinkVisibility\Plugin\Link\Downloadable" sortOrder="70" />
+    </type>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Downloadable\LinkVisibility\Api\Data\ExternalLinkInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">downloadable_link</item>
+                    <item name="identifierField" xsi:type="string">link_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

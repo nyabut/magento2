@@ -1,0 +1,20 @@
+{
+  "name": "downloadable/module-link-visibility",
+  "description": "A Magento 2 module that allows hiding and showing of individuble downloadable links",
+  "type": "magento2-module",
+  "version": "0.1.0",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0",
+    "magento/framework": "101.0.*"
+  },
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Downloadable\\LinkVisibility\\": ""
+    }
+  }
+}
