@@ -7,11 +7,15 @@ use Magento\Framework\Api\ExtensibleDataInterface;
 interface VisibilityInterface extends ExtensibleDataInterface
 {
     /**
+     * Gets the visibility value
+     *
      * @return int
      */
     public function getValue();
 
     /**
+     * Sets the visibility value
+     *
      * @param $type int
      *
      * @return int
@@ -19,11 +23,15 @@ interface VisibilityInterface extends ExtensibleDataInterface
     public function setValue($type);
 
     /**
+     * Gets the entity id
+     *
      * @return int
      */
     public function getId();
 
     /**
+     * Sets the entity id
+     *
      * @param $id int
      *
      * @return null
@@ -31,11 +39,15 @@ interface VisibilityInterface extends ExtensibleDataInterface
     public function setId($id);
 
     /**
+     * Gets the link id
+     *
      * @return int
      */
     public function getLinkId();
 
     /**
+     * Sets the link id
+     *
      * @param $linkId int
      *
      * @return null

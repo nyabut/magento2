@@ -10,11 +10,16 @@ class DataProviderProductFormModifierDataLinks
     protected $visibilityRepository;
 
     /**
-     * @param $subject
-     * @param $result
-     * @return mixed
+     * Modifies links to include visibility
+     *
+     * @param \Magento\Downloadable\Ui\DataProvider\Product\Form\Modifier\Data\Links $subject
+     * @param array $result
+     * @return array
      */
-    public function afterGetLinksData($subject, $result)
+    public function afterGetLinksData(
+        \Magento\Downloadable\Ui\DataProvider\Product\Form\Modifier\Data\Links $subject,
+        array $result
+    )
     {
         foreach ($result as &$link) {
             $linkId = $link['link_id'];
@@ -32,6 +37,12 @@ class DataProviderProductFormModifierDataLinks
         return $result;
     }
 
+    /**
+     * Constructor
+     *
+     * DataProviderProductFormModifierDataLinks constructor.
+     * @param \Downloadable\LinkVisibility\Api\VisibilityRepositoryInterface $visibilityRepository
+     */
     public function __construct(
         \Downloadable\LinkVisibility\Api\VisibilityRepositoryInterface $visibilityRepository
     ) {

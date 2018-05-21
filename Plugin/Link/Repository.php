@@ -56,9 +56,11 @@ class Repository
     }
 
     /**
-     * Lists links that match specified search criteria.
+     * Modifies links to include visibility
      *
-     * @return \Magento\Downloadable\Api\Data\LinkInterface[]
+     * @param \Magento\Downloadable\Api\LinkRepositoryInterface $subject
+     * @param array $result
+     * @return array
      */
     public function afterGetList(
         \Magento\Downloadable\Api\LinkRepositoryInterface $subject,
@@ -86,10 +88,16 @@ class Repository
     }
 
     /**
-     * @param \Magento\Catalog\Api\Data\ProductInterface $product
+     * Modifies the product links
+     *
+     * @param \Magento\Downloadable\Api\LinkRepositoryInterface $subject
+     * @param array $result
      * @return array
      */
-    public function afterGetLinksByProduct($subject, $result)
+    public function afterGetLinksByProduct(
+        \Magento\Downloadable\Api\LinkRepositoryInterface $subject,
+        array $result
+    )
     {
         foreach ($result as $link) {
             $extensionAttributes = $link->getExtensionAttributes();
@@ -112,12 +120,14 @@ class Repository
     }
 
     /**
-     * Runs after link save
+     * Overrides link save
      *
      * @param \Magento\Downloadable\Api\LinkRepositoryInterface $subject
-     * @param \Magento\Downloadable\Api\Data\LinkInterface $link
-     * @return \Magento\Downloadable\Api\Data\LinkInterface
-     * @throws CouldNotSaveException
+     * @param callable $proceed
+     * @param $sku
+     * @param LinkInterface $link
+     * @param bool $isGlobalScopeContent
+     * @return mixed
      */
     public function aroundSave(
         \Magento\Downloadable\Api\LinkRepositoryInterface $subject,

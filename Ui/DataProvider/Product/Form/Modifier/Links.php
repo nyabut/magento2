@@ -14,7 +14,7 @@ use Magento\Ui\Component\DynamicRows;
 use Magento\Framework\UrlInterface;
 use Magento\Ui\Component\Container;
 use Magento\Ui\Component\Form;
-use Magento\Config\Model\Config\Source\Yesno;
+use Magento\Config\Model\Config\Source\Yesno as Yesno;
 
 class Links extends DownloadableLinks
 {
@@ -24,14 +24,16 @@ class Links extends DownloadableLinks
     protected $yesNo;
 
     /**
+     * Constructor
+     *
      * @param LocatorInterface $locator
      * @param StoreManagerInterface $storeManager
      * @param ArrayManager $arrayManager
      * @param UrlInterface $urlBuilder
      * @param TypeUpload $typeUpload
      * @param Shareable $shareable
-     * @param Data\Links $linksData
-     * @param Yesno $yesno
+     * @param \Magento\Downloadable\Ui\DataProvider\Product\Form\Modifier\Data\Links $linksData
+     * @param Yesno $yesNo
      */
     public function __construct(
         LocatorInterface $locator,
@@ -54,6 +56,8 @@ class Links extends DownloadableLinks
     }
 
     /**
+     * Returns the record
+     *
      * @return array
      */
     protected function getRecord()
@@ -95,6 +99,11 @@ class Links extends DownloadableLinks
         );
     }
 
+    /**
+     * Returns the visibility column
+     *
+     * @return array
+     */
     protected function getVisibilityColumn()
     {
         $visibilityField['arguments']['data']['config'] = [

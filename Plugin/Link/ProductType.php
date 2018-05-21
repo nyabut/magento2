@@ -30,12 +30,18 @@ class ProductType
     }
 
     /**
-     * @param $subject
+     * Overrides the getLinks method
+     *
+     * @param \Magento\Downloadable\Model\Product\Type $subject
      * @param callable $proceed
      * @param $product
      * @return array
      */
-    public function aroundGetLinks($subject, callable $proceed, $product)
+    public function aroundGetLinks(
+        \Magento\Downloadable\Model\Product\Type $subject,
+        callable $proceed,
+        $product
+    )
     {
         $allowedLinkIds = [];
         $linkIds = $proceed($product);

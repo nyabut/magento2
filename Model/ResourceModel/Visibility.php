@@ -33,7 +33,7 @@ class Visibility extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     }
 
     /**
-     * Load an object using
+     * Load an object
      *
      * @param \Magento\Framework\Model\AbstractModel $object
      * @param mixed $value
@@ -46,7 +46,7 @@ class Visibility extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     }
 
     /**
-     *  Check whether reason code is valid
+     *  Check whether value is valid
      *
      * @param \Magento\Framework\Model\AbstractModel $object
      * @return bool

@@ -41,13 +41,15 @@ class Downloadable
     private $visibilityRepository;
 
     /**
-     * Constructor
-     *
+     * Downloadable constructor.
      * @param RequestInterface $request
      * @param LinkBuilder $linkBuilder
      * @param SampleBuilder $sampleBuilder
      * @param SampleInterfaceFactory $sampleFactory
      * @param LinkInterfaceFactory $linkFactory
+     * @param \Magento\Downloadable\Api\Data\LinkExtensionFactory $linkExtensionFactory
+     * @param \Downloadable\LinkVisibility\Api\Data\VisibilityInterfaceFactory $visibilityInterfaceFactory
+     * @param \Downloadable\LinkVisibility\Api\VisibilityRepositoryInterface $visibilityRepositoryInterface
      */
     public function __construct(
         RequestInterface $request,
